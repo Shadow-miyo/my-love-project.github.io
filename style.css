@@ -1,0 +1,742 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comfortaa', cursive, sans-serif;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e, #ffb6b6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* ===== ОСНОВНАЯ КАРТОЧКА ===== */
+.valentine-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    box-shadow: 0 20px 60px rgba(255, 71, 87, 0.3);
+    padding: 40px;
+    position: relative;
+    animation: cardAppear 1s ease-out;
+    border: 3px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+@keyframes cardAppear {
+    from { opacity: 0; transform: scale(0.8) translateY(30px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ===== ВСЕ СЕКЦИИ ПО ЦЕНТРУ ===== */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ===== ШАПКА С СЕРДЕЧКАМИ ===== */
+.header-hearts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.header-hearts span {
+    font-size: 40px;
+    animation: pop 2s infinite;
+}
+
+.header-hearts span:nth-child(2) { animation-delay: 0.3s; }
+.header-hearts span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes pop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ===== ЗАГОЛОВОК ПО ЦЕНТРУ ===== */
+.title {
+    text-align: center;
+    color: #ff4757;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 3px 3px 0 rgba(255, 107, 107, 0.2);
+    width: 100%;
+}
+
+/* ===== КОНТЕЙНЕР С ФОТО ПО ЦЕНТРУ ===== */
+.photo-container {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.our-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 30px;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
+    transition: all 0.3s ease;
+    animation: photoAppear 1s ease-out;
+    display: block;
+    margin: 0 auto;
+}
+
+@keyframes photoAppear {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.our-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+}
+
+.photo-heart {
+    position: absolute;
+    top: -10px;
+    right: 50%;
+    margin-right: -130px;
+    font-size: 40px;
+    animation: heartbeat 1s infinite;
+}
+
+.photo-caption {
+    text-align: center;
+    font-size: 18px;
+    color: #ff6b6b;
+    margin-top: 15px;
+    font-weight: 600;
+    width: 100%;
+}
+
+/* ===== ЗАГРУЗКА ФОТО ПО ЦЕНТРУ ===== */
+.upload-container {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.photo-frame {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.uploaded-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 30px;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.uploaded-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+}
+
+.change-photo-btn {
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-family: 'Comfortaa', cursive;
+    transition: all 0.3s;
+    border: 2px solid white;
+    display: inline-block;
+}
+
+.change-photo-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(255, 71, 87, 0.3);
+}
+
+/* ===== ГАЛЕРЕЯ ПО ЦЕНТРУ ===== */
+.gallery-container {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.gallery-slider {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+}
+
+.gallery-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gallery-photo.active {
+    opacity: 1;
+}
+
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.gallery-btn {
+    background: white;
+    color: #ff4757;
+    border: 2px solid #ff4757;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-btn:hover {
+    background: #ff4757;
+    color: white;
+    transform: scale(1.1);
+}
+
+.gallery-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #ffb6b6;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: #ff4757;
+    transform: scale(1.2);
+}
+
+/* ===== СООБЩЕНИЕ ПО ЦЕНТРУ ===== */
+.message-box {
+    background: linear-gradient(135deg, #fff5f5, #ffe6e6);
+    padding: 30px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    border: 2px dashed #ff6b6b;
+    text-align: center;
+    width: 100%;
+}
+
+.main-question {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff4757;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sweet-message {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    text-align: center;
+}
+
+/* ===== КНОПКИ ПО ЦЕНТРУ ===== */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: 120px;
+    width: 100%;
+}
+
+.btn {
+    padding: 18px 35px;
+    font-size: 22px;
+    font-weight: 600;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Comfortaa', cursive;
+}
+
+.yes-btn {
+    background: linear-gradient(45deg, #ff4757, #ff6b81);
+    color: white;
+    border: 3px solid white;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+}
+
+.no-btn {
+    background: white;
+    color: #ff4757;
+    border: 3px solid #ff4757;
+    transition: all 0.2s ease;
+}
+
+.no-btn:hover {
+    background: #ff4757;
+    color: white;
+}
+
+.btn-icon {
+    font-size: 24px;
+}
+
+/* ===== КОНТЕЙНЕР СООБЩЕНИЙ ПО ЦЕНТРУ ===== */
+.messages-container {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 241, 241, 0.9);
+    border-radius: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+}
+.message-item {
+    background: white;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    color: #ff4757;
+    font-size: 16px;
+    animation: slideInMessage 0.3s ease;
+    border-left: 5px solid #ff6b6b;
+    box-shadow: 0 2px 10px rgba(255, 71, 87, 0.1);
+    text-align: center;
+}
+
+@keyframes slideInMessage {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== СЧЁТЧИК ПО ЦЕНТРУ ===== */
+.counter-box {
+    text-align: center;
+    padding: 20px;
+    background: #fff9f9;
+    border-radius: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.try-counter {
+    font-size: 18px;
+    color: #ff6b6b;
+    margin-bottom: 10px;
+}
+
+#noCount {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff4757;
+}
+
+.try-message {
+    font-size: 16px;
+    color: #ff8787;
+    font-style: italic;
+}
+
+/* ===== ПОДВАЛ ПО ЦЕНТРУ ===== */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #ffe6e6;
+    color: #ff8787;
+    width: 100%;
+}
+
+.date {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #ffa7a7;
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО ПО ЦЕНТРУ ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 60px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: slideIn 0.5s;
+    border: 5px solid white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-100px) scale(0.8); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.modal-header {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 10px;
+    top: -20px;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    transform: scale(1.2);
+    color: #ff4757;
+}
+
+.modal-hearts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 50px;
+}
+
+.modal-body {
+    text-align: center;
+    color: white;
+}
+
+.modal-body h2 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 30px;
+    font-family: 'Comfortaa', cursive;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.love-letter {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 30px;
+    margin: 20px 0;
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+
+.love-letter p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.signature {
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 20px;
+    color: #fff5e6;
+    text-align: center;
+}
+
+.happy-dance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 60px;
+    margin: 30px 0;
+    animation: dance 1s infinite;
+}
+
+@keyframes dance {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.modal-stickers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 35px;
+    margin: 30px 0;
+}
+
+.modal-btn {
+    background: white;
+    color: #ff4757;
+    border: none;
+    padding: 15px 40px;
+    font-size: 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 3px solid white;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.modal-btn:hover {
+    background: #ff4757;
+    color: white;
+    transform: scale(1.1);
+    border: 3px solid white;
+}
+/* ===== ПУЗЫРЬКИ ===== */
+.bubbles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bubble {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.3;
+    animation: float 8s infinite;
+}
+
+.bubble:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; font-size: 30px; }
+.bubble:nth-child(2) { left: 20%; top: 60%; animation-delay: 1s; font-size: 40px; }
+.bubble:nth-child(3) { left: 80%; top: 30%; animation-delay: 2s; font-size: 35px; }
+.bubble:nth-child(4) { left: 90%; top: 70%; animation-delay: 3s; font-size: 45px; }
+.bubble:nth-child(5) { left: 30%; top: 80%; animation-delay: 4s; font-size: 25px; }
+.bubble:nth-child(6) { left: 70%; top: 40%; animation-delay: 5s; font-size: 50px; }
+.bubble:nth-child(7) { left: 40%; top: 15%; animation-delay: 6s; font-size: 55px; }
+.bubble:nth-child(8) { left: 60%; top: 85%; animation-delay: 7s; font-size: 35px; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(10deg); }
+}
+
+/* ===== КОНФЕТТИ ===== */
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes floatHeart {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-50px) scale(0.5); opacity: 0; }
+}
+
+@keyframes popHeart {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0; }
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    .valentine-card { 
+        padding: 30px; 
+    }
+    
+    .title { 
+        font-size: 28px; 
+    }
+    
+    .our-photo, .uploaded-photo {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .photo-heart {
+        margin-right: -100px;
+    }
+    
+    .main-question { 
+        font-size: 24px; 
+    }
+    
+    .btn { 
+        padding: 15px 25px; 
+        font-size: 20px; 
+    }
+    
+    .modal-content { 
+        margin: 20% auto; 
+        padding: 30px; 
+    }
+    
+    .modal-body h2 { 
+        font-size: 28px; 
+    }
+    
+    .love-letter p { 
+        font-size: 18px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .valentine-card { 
+        padding: 20px; 
+    }
+    
+    .title { 
+        font-size: 24px; 
+    }
+    
+    .our-photo, .uploaded-photo {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .photo-heart {
+        margin-right: -90px;
+        font-size: 30px;
+    }
+    
+    .buttons-container { 
+        gap: 15px; 
+    }
+    
+    .btn { 
+        padding: 12px 20px; 
+        font-size: 18px; 
+    }
+    
+    .btn-icon { 
+        font-size: 18px; 
+    }
+    
+    .modal-content { 
+        padding: 20px; 
+    }
+    
+    .modal-body h2 { 
+        font-size: 24px; 
+    }
+    
+    .love-letter p { 
+        font-size: 16px; 
+    }
+    
+    .signature { 
+        font-size: 20px; 
+    }
+}
